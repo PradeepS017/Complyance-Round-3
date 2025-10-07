@@ -1,8 +1,6 @@
 Invoicing ROI Simulator
 Lightweight ROI calculator that demonstrates the cost savings and payback when switching from
 manual to automated invoicing.
-
-
 1. Project Summary
 Goal: Deliver a working prototype (frontend + backend + DB) that simulates savings, ROI, and
 payback using simple math formulas and shows favorable automation outcomes.
@@ -12,29 +10,21 @@ Stack chosen for this assignment:
 • Database: MongoDB (persist scenarios)
 • Report generation: HTML-to-PDF (e.g., puppeteer or html-pdf) or server-side HTML snapshot
 • Optional local tunneling for demo: ngrok
-
-
 2. Planned Approach & Architecture
 High-level architecture
 1. React SPA (frontend)
 o Single page with a form for inputs, live results, scenario save/load UI, and report
 generation modal.
 o Communicates with backend through REST endpoints.
-
-
-3. Node.js + Express API (backend)
+2. Node.js + Express API (backend)
 o /simulate computes results using server-side constants and returns JSON.
 o Scenario CRUD endpoints persist to MongoDB.
 o /report/generate requires an email and returns a downloadable HTML/PDF
 snapshot.
-
-
-5. MongoDB
+3. MongoDB
 o Stores saved scenarios, metadata, and optionally generated report records / lead
 captures.
-
-
-6 Report generation & Email gating
+4. Report generation & Email gating
 o Frontend asks for an email before calling /report/generate.
 o Backend may store the email and scenario snapshot, then return a generated file or
 a signed link.
